@@ -1,0 +1,121 @@
+// const fs = require('fs');
+
+// const bodyParser = require('body-parser');
+// let books =[];
+// let RegisteredUsers = [];
+
+
+// fs.readFile('./Registered_Users.json', "utf-8", (err, data)=>{
+//     RegisteredUsers = JSON.parse(data);
+// });
+
+// fs.readFile(`${__dirname}/books.json`, "utf-8", (err, data)=>{
+//     books = JSON.parse(data);
+// });
+
+// app.use(bodyParser.urlencoded({ extended : true }));
+
+// app.get('/', (req,res) => {
+//     res.send('Hello World!!');
+// });
+
+// app.get('/api/books', (req,res) => {
+//     res.send(books);
+// });
+
+// app.get('/api/registeredUsers',(req,res) => {
+//     res.send(RegisteredUsers);
+// })
+
+// app.get('/api/books/:id', (req,res) => {
+//     // res.send(req.params.id);
+//     const book = books.find((c) => c.id == parseInt(req.params.id));
+//     if (!book) res.status(404).send('The book you have requested is unavailable')
+//     res.send(book);
+// });
+
+// app.post('/api/registeredUsers', (req,res) => {
+//     const user = {
+//         name : req.body.name,
+//         password : req.body.password
+//     };
+//     console.log(user);
+//     const userData = fs.readFileSync('./Registered_Users.json');
+//     console.log(userData);
+//     const userObject = JSON.parse(userData);
+//     userObject.push(user);
+//     const newUserList = JSON.stringify(userObject);
+
+//     fs.writeFile('./Registered_Users.json',newUserList, err => {
+//         if(err) console.log('Error writing the new user',err);
+//         else console.log('Successfully added the user to the file');
+//     })
+//     res.send(newUserList);
+// });
+// app.post('/api/books', (req,res) => {
+//     const book = {
+//         id : req.body.id,
+//         book_name : req.body.book_name,
+//         ISBN : req.body.ISBN,
+//         author : req.body.author,
+//         price : req.body.price,
+//         img : req.body.img
+//     };
+
+//     const data = fs.readFileSync('./books.json');//reading all the objects from the json file
+//     const myObject= JSON.parse(data);
+//     myObject.push(book);
+//     const newData = JSON.stringify(myObject);//stringifying the new added book list
+
+//     fs.writeFile('./books.json',newData, err => {
+//         if(err) console.log('Error writing file',err);
+//         else console.log('Successfully wrote to the file');
+//     })
+//     res.send(books);
+// });
+
+// app.put('/api/editedBooks/:id', (req,res) => {
+//     const book = books.find((c) => c.id == parseInt(req.params.id));
+//     if (!book) res.status(404).send('The book you have requested is unavailable')
+//     book.book_name = req.body.book_name;
+//     res.send(book);
+//     console.log('hello');
+// });
+
+// const book = {
+    //     id : req.body.id,
+    //     book_name : req.body.book_name,
+    //     ISBN : req.body.ISBN,
+    //     author : req.body.author,
+    //     price : req.body.price,
+    //     img : req.body.img
+    // };
+
+    // const data = fs.readFileSync('./books.json');//reading all the objects from the json file
+    // const myObject= JSON.parse(data);
+    // myObject.push(book);
+    // const newData = JSON.stringify(myObject);//stringifying the new added book list
+
+    // fs.writeFile('./books.json',newData, err => {
+    //     if(err) console.log('Error writing file',err);
+    //     else console.log('Successfully wrote to the file');
+    // })
+    // res.send(books);
+
+
+// const user = {
+    //     name : req.body.name,
+    //     password : req.body.password
+    // };
+    
+    // const userData = fs.readFileSync('./Registered_Users.json');
+    
+    // const userObject = JSON.parse(userData);
+    // userObject.push(user);
+    // const newUserList = JSON.stringify(userObject);
+
+    // fs.writeFile('./Registered_Users.json',newUserList, err => {
+    //     if(err) console.log('Error writing the new user',err);
+    //     else console.log('Successfully added the user to the file');
+    // })
+    // res.send(newUserList);

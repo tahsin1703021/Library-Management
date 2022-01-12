@@ -1,0 +1,148 @@
+body{
+    background-image: url('../img/background.png');
+    background-size: cover ;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+}
+.wrapper > div{
+    padding: 2em;
+    color: white;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    max-width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: .2em;
+    height: 500px;
+}
+.logIn > h1{
+    text-align: center;
+    color:rgba(73, 48, 2, 0.548) ;
+    font-weight: 600;
+}
+.register > h1{
+    text-align: center;
+    color: rgba(73, 48, 2, 0.548);
+    font-weight: 500;
+}
+.register > h4{
+    text-align: center;
+    color: rgba(73, 48, 2, 0.548);
+    font-weight: 500;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.logIn > h4{
+    text-align: center;
+    color: rgb(158, 137, 137);
+    font-weight: 100;
+    margin-top: 50px;
+    font-size: 18px;
+}
+.logIn{
+   background: white;
+   border-radius: 20px 0px 0px 20px;
+}
+.register{
+  background: white;
+   border-radius: 0px 20px 20px 0px;
+}
+input[type='submit']{
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+}
+button:hover{
+    opacity: .7;
+}
+form > p{
+    color:rgba(20, 16, 7, 0.548);
+    font-size: 15px;
+    margin-top: 20px;
+}
+.logIn input[type="text"], input[type="password"]{
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    border-bottom: 1px solid black;
+    width: 60%;
+    color: rgba(8, 8, 8, 0.548);
+}
+.modalAdmin input[type="text"], input[type="password"]{
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    border-bottom: 1px solid black;
+    width: 60%;
+    color: rgba(8, 8, 8, 0.548);
+} 
+.register input[type="text"], input[type="password"],input[type="email"]{
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    border-bottom: 1px solid black;
+    width: 100%;
+    color: rgba(8, 8, 8, 0.548);
+}
+form{
+    padding: 2em;
+}
+#fp{
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: blue; 
+}
+#fp:hover{
+    font-weight: 600;
+    color: red;
+}
+#adminLogin{
+    cursor: pointer;
+}
+#adminLogin:hover{
+color: black;
+}
+.modalAdmin {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    /* transition: ease-in 1s; */
+  }
+  
+  .modalContent {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid #888;
+    position: fixed;
+    width: 30%;
+    height: 50%;
+    top: 15%;
+    left: 35%;
+    border-radius: 15px;
+    transform: translate3d(0%, 0, 0);
+    /* transition: ease-in 1s; */
+  }
