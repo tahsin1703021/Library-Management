@@ -5,6 +5,8 @@ const bookSchema = require('../schemas/bookSchema');
 const checkLogin = require('../middlewares/checkLogin');
 const bookRouter = express.Router();
 const BookSchema = new mongoose.model("Book", bookSchema);
+const multer = require("multer");
+const upload = multer({ dest: "expressDemo/routes/image-Uploads" });
 
 let books =[];
 
@@ -25,8 +27,27 @@ bookRouter.get('/getAllBooks',(req,res) => {
     })
 });
 
+// bookRouter.post('/postBooks',upload.single("files"), (req,res) => {
+//     console.log(req.body);
+//     console.log(req.files);
+//     res.json({ message: "Successfully uploaded files" });
+
+//     // const newBook = new BookSchema(req.body);
+//     //  newBook.save((err) => {
+//     //     if(err){
+//     //         res.status(500).json({
+//     //             error: "There was a server side error while adding a book",
+//     //         });
+//     //     }else {
+//     //         res.status(200).json({
+//     //             message: "Book was added successfully",
+//     //         });
+//     //     }
+//     // });
+
+// });
 bookRouter.post('/postBooks', (req,res) => {
-   
+    
     const newBook = new BookSchema(req.body);
      newBook.save((err) => {
         if(err){

@@ -72,12 +72,12 @@ searchBar.addEventListener('keyup', (e) => {
 });
 
 
-//opening the form
+//opening the form of Addbook
 document.getElementById('ShForm').addEventListener('click',()=>{
     document.getElementById('addBooks').style.display = 'block';
 });
 
-//closing the form
+//closing the form of Addbook
 document.getElementById('closeForm').addEventListener('click',()=>{
     document.getElementById('addBooks').style.display = 'none';
 });
@@ -88,6 +88,26 @@ document.getElementById('Add').addEventListener('click',()=>{
     const bookDetails = [];
     const form = document.getElementById('addBookForm');
     const formdata = new FormData(document.getElementById('addBookForm'));
+
+    // const newBookDetails = document.getElementsByName('newBookInfo');
+    // const title = newBookDetails[0].value;
+    // const author = newBookDetails[1].value;
+    // const price = newBookDetails[2].value;
+    // const isbn = newBookDetails[3.].value;
+    // const img = newBookDetails[4].value;
+    
+    // const formData = new FormData();
+    // formData.append("title",title);
+    // formData.append("author",author);
+    // formData.append("price",price);
+    // formData.append("isbn",isbn);
+    // formData.append("files",img);
+
+
+
+
+
+
     for(let key of formdata.keys()){
         bookDetails.push(formdata.get(key));
     }
@@ -97,6 +117,13 @@ document.getElementById('Add').addEventListener('click',()=>{
     let price =  bookDetails[2];
     let isbn =  bookDetails[3];
     let img = bookDetails[4];
+
+    // fetch("http://localhost:3000/books/postBooks", {
+    //     method: 'post',
+    //     body: formData
+    // })
+    //     .then((res) => console.log(res))
+    //     .catch((err) => ("Error occured", err));
 
     axios.post('http://localhost:3000/books/postBooks', {
         book_name : title,
@@ -119,20 +146,20 @@ document.getElementById('logout').addEventListener('click',()=>{
     window.location.href = "../index.html";
 });
 
-//editing books
+//opening the edit book Modal
 function Edit(element){
-    let isbnNumber = element.parentNode.getElementsByTagName('*')[7].textContent;
+    let isbnNumber = element.parentNode.getElementsByTagName('*')[8].textContent;
     let editDetails = document.getElementsByName('editInfo');
+    // console.log(typeof(isbnNumber));
     
-    allBooks.map(item=>{
-        item.map(bookDetails => {
-            if(bookDetails.ISBN === parseInt( isbnNumber )){
+    allBooks[0].map(bookDetails=>{
+            if(bookDetails.ISBN === parseInt(isbnNumber)){
                 editDetails[0].placeholder = bookDetails.book_name;
                 editDetails[1].placeholder = bookDetails.author;
                 editDetails[2].placeholder = bookDetails.price;
                 editDetails[3].placeholder = bookDetails.ISBN;
             }
-        })
+    
     });
     var modal = document.getElementById("modalHeader");
 
@@ -154,7 +181,7 @@ function Edit(element){
     }
 }
 
-//updating the edited book
+//saving the editing details
 function saveEditing(element){
     //getting the placeholder value of the modal
     let isbnNumber = element.parentNode.getElementsByTagName('*')[18].placeholder;
