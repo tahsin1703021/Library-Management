@@ -1,4 +1,5 @@
 const cors = require('cors');
+const path = require('path');
 const mongoose = require('mongoose')
 const express = require('express');
 const dotenv = require("dotenv");
@@ -10,7 +11,7 @@ const app = express();
 dotenv.config();
 app.use(cors());
 app.use(express.json());
-app.use(require('body-parser').urlencoded({extended: true}));
+app.use(require('body-parser').urlencoded({extended: false}));
 mongoose
     .connect('mongodb://localhost/libraryDB', {
         useNewUrlParser: true,
