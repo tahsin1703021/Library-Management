@@ -44,7 +44,7 @@ const displayBooks = (data) => {
    data.map(item => {
             const div = `
                 <div class="card" style="width: 18rem;background: transparent;">
-                <img class="card-img-top" src="" alt="Card image cap">
+
                     <div class="card-body">
                     <h5 class="card-title">${item.book_name}</h5>
                     <p class="card-text">Author :<b>${item.author}</b></p>
@@ -86,55 +86,33 @@ document.getElementById('closeForm').addEventListener('click',()=>{
 //Add the books in the post api
 document.getElementById('Add').addEventListener('click',()=>{
     const bookDetails = [];
-    // const form = document.getElementById('addBookForm');
-    // const formdata = new FormData(document.getElementById('addBookForm'));
+    const form = document.getElementById('addBookForm');
+    const formdata = new FormData(document.getElementById('addBookForm'));
 
-    const newBookDetails = document.getElementsByName('newBookInfo');
-    const title = newBookDetails[0].value;
-    const author = newBookDetails[1].value;
-    const price = newBookDetails[2].value;
-    const isbn = newBookDetails[3.].value;
-    const img = newBookDetails[4].value;
+    for(let key of formdata.keys()){
+        bookDetails.push(formdata.get(key));
+    }
+    console.log(bookDetails);
+
+    let title =  bookDetails[0];
+    let author =  bookDetails[1];
+    let price =  bookDetails[2];
+    let isbn =  bookDetails[3];
     
-    const formData = new FormData();
 
-    formData.append("title",title);
-    formData.append("author",author);
-    formData.append("price",price);
-    formData.append("isbn",isbn);
-    formData.append("files",img);
-
-
-    // for(let key of formdata.keys()){
-    //     bookDetails.push(formdata.get(key));
-    // }
-
-    // let title =  bookDetails[0];
-    // let author =  bookDetails[1];
-    // let price =  bookDetails[2];
-    // let isbn =  bookDetails[3];
-    // let img = bookDetails[4];
-
-    fetch("http://localhost:3000/books/postBooks", {
-        method: 'post',
-        body: formData
-    })
-        .then((res) => console.log(res))
-        .catch((err) => ("Error occured", err));
-
-    // axios.post('http://localhost:3000/books/postBooks', {
-    //     book_name : title,
-    //     ISBN : isbn,
-    //     author: author,
-    //     price : price
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error.response.data);
-    //   });
-    //   form.reset();
+    axios.post('http://localhost:3000/books/postBooks', {
+        book_name : title,
+        ISBN : isbn,
+        author: author,
+        price : price
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error.response.data);
+      });
+      form.reset();
 });
 
 //logging out

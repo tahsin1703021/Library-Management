@@ -27,7 +27,6 @@ const displayBooks = (data) => {
     data.map(item => {
              const div = `
                  <div class="card" style="width: 18rem;background: transparent;">
-                 <img class="card-img-top" src="" alt="Card image cap">
                      <div class="card-body">
                      <h5 class="card-title">${item.book_name}</h5>
                      <p class="card-text">Author :<b>${item.author}</b></p>
